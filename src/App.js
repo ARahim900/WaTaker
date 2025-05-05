@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import { sampleData } from './data/sampleData';
 import { getAvailablePeriods } from './utils/dataUtils';
 import Dashboard from './components/Dashboard';
+import ZoneDetails from './components/ZoneDetails';
+import TypeDetails from './components/TypeDetails';
+import LossDetails from './components/LossDetails';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 
@@ -97,26 +100,25 @@ function App() {
               />
             )}
             
-            {/* Additional views will be added here */}
             {activeView === 'zones' && (
-              <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-4">Zone Analysis</h2>
-                <p className="text-gray-500">Zone analysis component will be implemented here.</p>
-              </div>
+              <ZoneDetails 
+                waterData={waterData} 
+                selectedPeriod={selectedPeriod} 
+              />
             )}
             
             {activeView === 'types' && (
-              <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-4">Type Analysis</h2>
-                <p className="text-gray-500">Type analysis component will be implemented here.</p>
-              </div>
+              <TypeDetails 
+                waterData={waterData} 
+                selectedPeriod={selectedPeriod} 
+              />
             )}
             
             {activeView === 'losses' && (
-              <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-4">Loss Analysis</h2>
-                <p className="text-gray-500">Loss analysis component will be implemented here.</p>
-              </div>
+              <LossDetails 
+                waterData={waterData} 
+                selectedPeriod={selectedPeriod} 
+              />
             )}
           </motion.div>
         </main>
